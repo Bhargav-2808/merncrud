@@ -1,0 +1,19 @@
+{
+    "users" : [
+        {
+            "id" : "1",
+            "name" : "Bhargav",
+            "age" : "20",
+            "email" : "bhargav@gmail.com",
+            "mobile": "9327963077"
+        },
+        {
+            "id" : "2",
+            "name" : "Deep",
+            "age" : "20",
+            "email" : "deep@gmail.com",
+            "mobile": "932732377"
+        }
+        
+    ]
+}

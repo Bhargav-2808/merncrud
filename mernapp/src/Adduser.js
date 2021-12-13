@@ -1,51 +1,68 @@
 import { useState } from "react";
+import {addusers} from './api';
 import react from "react";
 
+
+const instialvalue = {
+  name : "",
+  age : "",
+  email : "",
+  mobile : ""
+}
+
+
 const Adduser = () => {
-    const [name, setname] = useState('');
-    const [age, setage] = useState('');
-    const [email, setemail] = useState('');
-    const [mobile, setmobile] = useState('');
+  const [formValues, setformValues] = useState(instialvalue);
+  const [name, age, email, mobile] = formValues;
 
 
-    const submit = (e) =>{
-        e.preventDefault();
-    }
+
+  const commonFormSet = (e) => {
+    setformValues({ ...formValues, [e.target.name]: [e.target.value] })
+  }
+
+  const adduserdetails = async() =>{
+    await addusers(formValues);
+
+  }
 
   return (
     <>
-      <form onSubmit={submit}>
+      <form>
         <div>
           <table>
-              <tbody>
-            <tr>
-              <td>Name</td>
-              <td>
-                <input type="text" value={name} onChange={(e) => setname(e.target.value)}/>
-              </td>
-            </tr>
-            <tr>
-              <td>age</td>
-              <td>
-                <input type="text" value={age} onChange={(e) => setage(e.target.value)}/>
-              </td>
-            </tr>
-            <tr>
-              <td>email</td>
-              <td>
-                <input type="text" value={email} onChange={(e) => setemail(e.target.value)}/>
-              </td>
-            </tr>
-            <tr>
-              <td>mobile</td>
-              <td>
-                <input type="text" value={mobile} onChange={(e) => setmobile(e.target.value)}/>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </form>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>
+                  <input type="text" onChange={(e) => commonFormSet(e)} value={name} name="name" />
+                </td>
+              </tr>
+              <tr>
+                <td>age</td>
+                <td>
+                  <input type="text" onChange={(e) => commonFormSet(e)} value={age} name="age" />
+                </td>
+              </tr>
+              <tr>
+                <td>email</td>
+                <td>
+                  <input type="text" onChange={(e) => commonFormSet(e)} value={email} name="email" />
+                </td>
+              </tr>
+              <tr>
+                <td>mobile</td>
+                <td>
+                  <input type="text" onChange={(e) => commonFormSet(e)} value={mobile} name="mobile" />
+                </td>
+              </tr>
+              <button type="submit" onclick= {() =>adduserdetails() }>
+              Submit</button>
+
+          </tbody>
+        </table>
+      </div>
+    </form>
     </>
   );
 };
