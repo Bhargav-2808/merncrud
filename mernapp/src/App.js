@@ -1,13 +1,14 @@
 
-import Adduser from './Adduser';
+
 import './App.css';
-import Crud from './Crud';
+import Links from './Links';
+import Path from './Path';
 
 function App() {
   return (
     <>
-      <Crud />
-      <Adduser/>
+      <Path/>
+      <Links/>
     </>
   );
 }
