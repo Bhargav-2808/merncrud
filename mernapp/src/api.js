@@ -9,5 +9,10 @@ const getusers = async () =>{
 const addusers = async (user) =>{
     return await axios.post(url,user)
 }
+ 
+const deleteUser = async (id) => {
+    return await axios.delete(`${url}/${id}`);
+}
 
-export  {getusers, addusers};
+
+export  {getusers, addusers, deleteUser};

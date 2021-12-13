@@ -1,5 +1,7 @@
-import {getusers} from "./api";
+import {getusers , deleteUser} from "./api";
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Crud = () => {
 
@@ -9,12 +11,16 @@ const Crud = () => {
         getuserdata();
     }, [])
 
+    const deleteUserData = async (id) => {
+        await deleteUser(id);
+        getuserdata();
+    }
+
+
     const getuserdata = async () => {
 
         const response = await getusers();
-        console.log(response?.data);
-
-        setdata(null);
+        setdata(response.data);
     }
 
     return (
@@ -38,6 +44,8 @@ const Crud = () => {
                                     <td>{dataset.age}</td>
                                     <td>{dataset.email}</td>
                                     <td>{dataset.mobile}</td>
+                                    <td><button onClick={() => deleteUserData(dataset.id)}> delete</button></td>
+                                    <td><button component={Link} to={`/edit/${dataset}.id}`}>update</button></td>
                                 </tr>
                             )
 
