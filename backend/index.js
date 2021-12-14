@@ -1,17 +1,18 @@
 import express from 'express';
 import mongoos from 'mongoose';
+import route  from './Server/routes.js';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
 const app = express(); //express rn=un as function
 const PORT  = 8888;
 
-const route = express.Router();
 
-route.get("/", (request , response ) =>{
-    response.status(200).json("Hii Connected");
+app.use('/users' , route)  // to use the route
+app.use(cors());
+app.use(bodyParser.json({extended:true}))
+app.use(bodyParser.urlencoded({extended:true}))
 
-})
-
-app.use('/user' , route);
 
 const URL = "mongodb+srv://crud.vfh3a.mongodb.net/CRUD?retryWrites=true&w=majority";
 mongoos.connect(URL , {auth: {username: "bhargav2808", password: "Bhargav#2001"}}, {useNewUrlParser:true , useUnifiedTopology: true , useFindAndModify: false} ).then(

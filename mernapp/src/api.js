@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url ="http://localhost:3003/users";
+const url ="http://localhost:8888/users";
 
 const getusers = async (id) =>{
     id = id || '';
@@ -8,7 +8,7 @@ const getusers = async (id) =>{
 }
 
 const addusers = async (user) =>{
-    return await axios.post(url,user)
+    return await axios.post(`${url}/adduser`,user)
 }
  
 const deleteUser = async (id) => {
