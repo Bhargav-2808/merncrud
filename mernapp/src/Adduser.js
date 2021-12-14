@@ -16,7 +16,7 @@ const initialvalue = {
   
 
   const commonFormSet = (e) => {
-    setUser({ ...user, [e.target.name]: [e.target.value] });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const onValueChange = async () => {
