@@ -14,27 +14,27 @@ const initialvalue = {
 const Edituser = () => {
     const [user, setUser] = useState(initialvalue);
     const { name, age, email, mobile } = user;
-    const id = useParams();
+    const {id} = useParams();
 
 
-    useEffect(() => {
-        loadUserDetails();
-    }, []);
+    // useEffect(() => {
+    //     loadUserDetails();
+    // }, []);
 
-    const loadUserDetails = async () => {
-        const response = await addusers(id);
-        setUser(response.data);
-    }
+    // const loadUserDetails = async () => {
+    //     const response = await addusers(id);
+    //     setUser(response.data);
+    // }
 
-
+    const commonFormSet = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
+    };
 
     const onValueChange = async () => {
-        const response = await editUser(id, user);
+        const response =   await editUser(id, user);
 
     };
-    const commonFormSet = (e) => {
-        setUser({ ...user, [e.target.name]: [e.target.value] });
-    };
+  
 
 
 

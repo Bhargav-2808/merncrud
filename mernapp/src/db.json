@@ -1,11 +1,18 @@
 {
   "users": [
     {
-      "name": "Bhargav valani",
+      "name": "Bhargav",
       "age": "21",
-      "email": "bhargavvalani01@gmail.com",
-      "mobile": "0932 796 3077",
+      "email": "bhargav@.com",
+      "mobile": "9913653509",
       "id": 1
+    },
+    {
+      "name": "dddd",
+      "age": "ss",
+      "email": "darshanvalani1997@gmail.com",
+      "mobile": "9913653509",
+      "id": 2
     }
   ]
 }

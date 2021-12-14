@@ -45,7 +45,7 @@ const Crud = () => {
                                     <td>{dataset.email}</td>
                                     <td>{dataset.mobile}</td>
                                     <td><button onClick={() => deleteUserData(dataset.id)}> delete</button></td>
-                                    <td><button component={Link} to={`/edit/${dataset.id}`} >update</button></td>
+                                    <td><Link  to={`/edit/${dataset.id}`} >update</Link></td>
                                 </tr>
                             )
 

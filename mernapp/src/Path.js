@@ -10,8 +10,8 @@ const Path = () =>{
         <>
             <Routes>
                 <Route exact path="/" element={<Crud />}></Route>
-                <Route exact path="/edit/:id"  element = {<Edituser />} > </Route>
-                <Route exact path="/Adduser" element={<Adduser/>}></Route>
+                <Route  path="/edit/:id"  element = {<Edituser />} > </Route>
+                <Route exact path="/adduser" element={<Adduser/>}></Route>
                 
             </Routes>
         </>
