@@ -7,13 +7,11 @@ import bodyParser from 'body-parser';
 const app = express(); //express rn=un as function
 const PORT  = 8888;
 
-
-app.use('/users' , route)  // to use the route
 app.use(cors());
 app.use(bodyParser.json({extended:true}))
 app.use(bodyParser.urlencoded({extended:true}))
 
-
+app.use('/users' , route)  // to use the route
 const URL = "mongodb+srv://crud.vfh3a.mongodb.net/CRUD?retryWrites=true&w=majority";
 mongoos.connect(URL , {auth: {username: "bhargav2808", password: "Bhargav#2001"}}, {useNewUrlParser:true , useUnifiedTopology: true , useFindAndModify: false} ).then(
 

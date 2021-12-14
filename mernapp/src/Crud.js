@@ -37,7 +37,8 @@ const Crud = () => {
                         </tr>
 
 
-                        { data?.map(dataset => 
+                        { 
+                            data?.map(dataset => 
                                 <tr key={dataset.id + dataset.name}>
                                     <td>{dataset.id}</td>
                                     <td>{dataset.name}</td>
