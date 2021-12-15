@@ -39,14 +39,14 @@ const Crud = () => {
 
                         { 
                             data?.map(dataset => 
-                                <tr key={dataset.id + dataset.name}>
-                                    <td>{dataset.id}</td>
+                                <tr key={dataset._id + dataset.name}>
+                                    <td>{dataset._id}</td>
                                     <td>{dataset.name}</td>
                                     <td>{dataset.age}</td>
                                     <td>{dataset.email}</td>
                                     <td>{dataset.mobile}</td>
-                                    <td><button onClick={() => deleteUserData(dataset.id)}> delete</button></td>
-                                    <td><Link  to={`/edit/${dataset.id}`} >update</Link></td>
+                                    <td><button onClick={() => deleteUserData(dataset._id)}> delete</button></td>
+                                    <td><Link  to={`/edit/${dataset._id}`} >update</Link></td>
                                 </tr>
                             )
 
