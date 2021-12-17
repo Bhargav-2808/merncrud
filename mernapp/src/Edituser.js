@@ -5,17 +5,13 @@ import {Form, Container, Button} from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-// const initialvalue = {
-//   name: "",
-//   age: "",
-//   email: "",
-//   mobile: "",
-// };
+
 
 const Edituser = () => {
   const { id } = useParams();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit ,formState: { errors }} = useForm();
   const onSubmit = async (data) => {
+    
     await editUser(id, data);
     //console.log(data);
   };
@@ -33,8 +29,9 @@ const Edituser = () => {
               type="text"
               placeholder="Enter Full-Name"
               name="name"
-              {...register("name")}
+              {...register("name" ,  { required: true })}
             />
+            {errors.name?.type === 'required' && "Name is required"}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Age</Form.Label>
@@ -42,8 +39,9 @@ const Edituser = () => {
               type="text"
               placeholder="Enter Age"
               name="age"
-              {...register("age")}
+              {...register("age",  { required: true })}
             />
+            {errors.age?.type === 'required' && "Age is required"}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Email</Form.Label>
@@ -51,8 +49,11 @@ const Edituser = () => {
               type="email"
               placeholder="Enter email"
               name="email"
-              {...register("email")}
+              {...register("email",  { required: true } , {pattern : /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}
             />
+            {errors.email?.type === 'required' && "Email is required"}
+            {errors.email?.type === 'pattern' && "Enter Email in proper formate"}
+
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Mobile Number</Form.Label>
@@ -60,8 +61,11 @@ const Edituser = () => {
               type="number"
               placeholder="Enter Mobile-Number"
               name="mobile"
-              {...register("mobile")}
+              {...register("mobile",  { required: true } , {pattern: /^\d{10}$/})}
             />
+            {errors.mobile?.type === 'required' && "Mobile number is required"}
+            {errors.mobile?.type === 'pattern' && "enter 10 digit"}
+
           </Form.Group>
 
           <Button variant="primary" type="submit">
