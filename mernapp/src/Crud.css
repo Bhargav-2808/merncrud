@@ -1,0 +1,18 @@
+.updateLink{
+    text-decoration: none ;
+    margin : 5px;
+    color: white;
+}
+
+.updateLink:hover{
+    color: black;
+}
+
+.deleteLink:hover{
+    color: black;
+}
+.deleteLink{
+    color: white;
+    text-decoration: none;
+    margin : 5px;
+}

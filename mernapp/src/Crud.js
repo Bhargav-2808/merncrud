@@ -2,7 +2,8 @@ import { getusers, deleteUser } from "./api";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Links from "./Links";
-import {Table} from 'react-bootstrap'
+import './Crud.css'
+import { Button, Table } from "react-bootstrap";
 
 const Crud = () => {
   const [data, setdata] = useState([]);
@@ -37,27 +38,26 @@ const Crud = () => {
           </tr>
         </thead>
         <tbody>
-        {data?.map((dataset) => (
-              <tr key={dataset._id + dataset.name}>
-                <td>{dataset._id}</td>
-                <td>{dataset.name}</td>
-                <td>{dataset.age}</td>
-                <td>{dataset.email}</td>
-                <td>{dataset.mobile}</td>
-                <td>
-                  <button onClick={() => deleteUserData(dataset._id)}>
-                    {" "}
-                    delete
-                  </button>
-                </td>
-                <td>
-                  <Link to={`/edit/${dataset._id}`}>update</Link>
-                </td>
-              </tr>
-            ))}
+          {data?.map((dataset) => (
+            <tr key={dataset._id + dataset.name}>
+              <td>{dataset._id}</td>
+              <td>{dataset.name}</td>
+              <td>{dataset.age}</td>
+              <td>{dataset.email}</td>
+              <td>{dataset.mobile}</td>
+              <td>
+                <Button  className = "deleteLink"onClick={() => deleteUserData(dataset._id)}>
+                  Delete
+                </Button>
+              </td>
+              <td>
+                <Button  className="updateLink"><Link className="updateLink" to={`/edit/${dataset._id}`}>Update</Link> </Button>
+               
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
-      
     </>
   );
 };
