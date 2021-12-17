@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from "react";
+import Links from './Links';
 import { addusers, editUser } from "./api";
 import { useParams } from "react-router-dom";
 
@@ -41,6 +42,7 @@ const Edituser = () => {
 
     return (
         <>
+             <Links />
             <form>
                 <div>
                     <table>

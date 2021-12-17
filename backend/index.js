@@ -12,8 +12,9 @@ app.use(bodyParser.json({extended:true}))
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use('/users' , route)  // to use the route
-const URL = "mongodb+srv://crud.vfh3a.mongodb.net/CRUD?retryWrites=true&w=majority";
-mongoos.connect(URL , {auth: {username: "bhargav2808", password: "Bhargav#2001"}}, {useNewUrlParser:true , useUnifiedTopology: true , useFindAndModify: false} ).then(
+//const URL = "mongodb+srv://crud.vfh3a.mongodb.net/CRUD?retryWrites=true&w=majority";
+const URL = "mongodb+srv://crud.vfh3a.mongodb.net/CRUD?retryWrites=true&w=majority"
+mongoos.connect(URL , {auth: {username: "bhargav2808", password: "test"}}, {useNewUrlParser:true , useUnifiedTopology: true , useFindAndModify: false} ).then(
 
     app.listen( PORT , () =>{
         // litsen take two argument one is port number and second is callback to display.s

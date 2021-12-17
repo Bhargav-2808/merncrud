@@ -1,14 +1,14 @@
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Links from './Links';
+
 import Path from './Path';
 
 function App() {
   return (
     <>
       <Path/>
-      <Links/>
+      
     </>
   );
 }

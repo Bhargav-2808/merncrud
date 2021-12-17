@@ -1,4 +1,5 @@
 import react , { useState } from "react";
+import Links from './Links';
 import { addusers } from "./api";
 
 
@@ -26,6 +27,7 @@ const initialvalue = {
 
   return (
     <>
+      <Links/>
       <form>
         <div>
           <table>
