@@ -9,6 +9,17 @@ export const getusers = async (request, response) => {
   }
 };
 
+
+export const getUserById = async (request, response) => {
+  try{
+      const user = await User.findById(request.params.id);
+      response.status(200).json(user);
+  }catch( error ){
+      response.status(404).json({ message: error.message })
+  }
+}
+
+
 export const addusers = async (request, response) => {
   // response.send("code ");
   const user = request.body;

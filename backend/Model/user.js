@@ -4,7 +4,7 @@ import  mongoose  from "mongoose";
 const userSchema = mongoose.Schema(
     {
         name: String,
-        age: String ,
+        age: Number ,
         email: String ,
         mobile: Number,
     }

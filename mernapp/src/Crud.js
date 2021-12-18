@@ -1,9 +1,13 @@
 import { getusers, deleteUser } from "./api";
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import Links from "./Links";
 import "./Crud.css";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
+
 
 const Crud = () => {
   const [data, setdata] = useState([]);
@@ -41,7 +45,7 @@ const Crud = () => {
         <Table striped bordered hover variant="dark" className="mt-5">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Number</th>
               <th>Name</th>
               <th>Age </th>
               <th>Email</th>
@@ -51,9 +55,9 @@ const Crud = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((dataset) => (
+            {data?.map((dataset, index) => (
               <tr key={dataset._id + dataset.name}>
-                <td>{dataset._id}</td>
+               <td>{index + 1}</td>
                 <td>{dataset.name}</td>
                 <td>{dataset.age}</td>
                 <td>{dataset.email}</td>
@@ -61,7 +65,27 @@ const Crud = () => {
                 <td>
                   <Button
                     className="deleteLink"
-                    onClick={() => deleteUserData(dataset._id)}
+                    onClick={() => {
+
+                      confirmAlert({
+                        title: 'Confirm to Delete',
+                        message: 'Are you sure?',
+                        buttons: [
+                          {
+                            label: 'Yes',
+                            onClick: () => deleteUserData(dataset._id)
+                          },
+                          {
+                            label: 'No',
+                            onClick: () => {}
+                          }
+                        ]
+                      });
+                  
+                     
+                    
+                    }
+                    }
                   >
                     Delete
                   </Button>

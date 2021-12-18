@@ -1,6 +1,5 @@
 import {useForm} from 'react-hook-form'
 import './Error-detail.css';
-import react, { useState } from "react";
 import Links from "./Links";
 import {Form, Button, Container} from 'react-bootstrap';
 import { addusers } from "./api";
@@ -36,7 +35,7 @@ const Adduser = () => {
           <Form.Group className="mb-3">
             <Form.Label>Age</Form.Label>
             <Form.Control
-              type="text"
+             type="number"
               placeholder="Enter Age"
               name="age"
               {...register("age",  { required: true })}
@@ -58,7 +57,7 @@ const Adduser = () => {
           <Form.Group className="mb-3">
             <Form.Label>Mobile Number</Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               placeholder="Enter Mobile-Number"
               name="mobile"
               {...register("mobile",  { required: true } , {pattern: /^\d{10}$/})}
