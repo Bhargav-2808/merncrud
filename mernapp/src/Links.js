@@ -8,10 +8,10 @@ const Links = () => {
       
         <Navbar bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="#home">CRUD</Navbar.Brand>
             <Nav className="me-auto">
-              <Link className="link" to="/">Data</Link>
-              <Link className="link" to="/adduser">Adduser</Link>
+              <Link className="link" to="/">Users</Link>
+              {/* <Link className="link" to="/adduser">Adduser</Link> */}
             </Nav>
           </Container>
         </Navbar>

@@ -1,6 +1,7 @@
 import react, { useState, useEffect } from "react";
 import Links from "./Links";
 import {  editUser } from "./api";
+import './Error-detail.css';
 import {Form, Container, Button} from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -19,9 +20,8 @@ const Edituser = () => {
 
   return (
     <>
-      <Links />
-
-      <Container className="mt-5">
+      <Links/>
+       <Container className="mt-5">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3">
             <Form.Label>Full name</Form.Label>
@@ -29,9 +29,9 @@ const Edituser = () => {
               type="text"
               placeholder="Enter Full-Name"
               name="name"
-              {...register("name" ,  { required: true })}
+             {...register("name" ,  { required: true })}
             />
-            {errors.name?.type === 'required' && "Name is required"}
+            <small className='error-details'>{errors.name?.type === 'required' && "Name is required"}</small>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Age</Form.Label>
@@ -41,7 +41,7 @@ const Edituser = () => {
               name="age"
               {...register("age",  { required: true })}
             />
-            {errors.age?.type === 'required' && "Age is required"}
+            <small className='error-details'>{errors.age?.type === 'required' && "Age is required"}</small>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Email</Form.Label>
@@ -51,8 +51,8 @@ const Edituser = () => {
               name="email"
               {...register("email",  { required: true } , {pattern : /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}
             />
-            {errors.email?.type === 'required' && "Email is required"}
-            {errors.email?.type === 'pattern' && "Enter Email in proper formate"}
+            <small className='error-details'>{errors.email?.type === 'required' && "Email is required"}</small>
+            <small className='error-details'>{errors.email?.type === 'pattern' && "Enter Email in proper formate"}</small>
 
           </Form.Group>
           <Form.Group className="mb-3">
@@ -63,13 +63,13 @@ const Edituser = () => {
               name="mobile"
               {...register("mobile",  { required: true } , {pattern: /^\d{10}$/})}
             />
-            {errors.mobile?.type === 'required' && "Mobile number is required"}
-            {errors.mobile?.type === 'pattern' && "enter 10 digit"}
+            <small className='error-details'>{errors.mobile?.type === 'required' && "Mobile number is required"}</small>
+            <small className='error-details'>{errors.mobile?.type === 'pattern' && "enter 10 digit"}</small>
 
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            Submit
+            Update
           </Button>
         </Form>
       </Container>
